@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #EB460A, #00BBFA);
+    background: linear-gradient(135deg, #7c76ce, #0025faa2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +15,7 @@ body {
 }
 
 .container {
-    background-color: #f2f1f140;
+    background-color: #f1f1f240;
     padding: 40px;
     border-radius: 15px;
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -27,7 +27,7 @@ body {
 .form-title {
     font-size: 1.8rem;
     margin-bottom: 20px;
-    color: #333;
+    color: #083152;
 }
 
 .input-group {
@@ -39,14 +39,14 @@ body {
 .input-group input {
     width: 100%;
     padding: 12px 40px;
-    border: 1px solid #ccc;
+    border: 1px solid #381a1a;
     border-radius: 25px;
     font-size: 1rem;
     transition: border-color 0.3s;
 }
 
 .input-group input:focus {
-    border-color: #1D6DCD;
+    border-color: #752b97;
     outline: none;
 }
 
@@ -56,7 +56,7 @@ body {
     left: 40px;
     transform: translateY(-50%);
     font-size: 0.9rem;
-    color: #888;
+    color: #3378e0c2;
     transition: all 0.3s;
 }
 
@@ -65,7 +65,7 @@ body {
     top: -10px;
     left: 15px;
     font-size: 0.8rem;
-    color: #ccc;
+    color: #0127ff94;
     background-color: #00000000;
     padding: 0 5px;
 }
@@ -75,11 +75,11 @@ body {
     top: 50%;
     left: 15px;
     transform: translateY(-50%);
-    color: #888;
+    color: #460ea1;
 }
 
 .btn {
-    background-color: #1D6DCD;
+    background-color: #251cac;
     color: #fff;
     padding: 12px 20px;
     border: none;
@@ -92,7 +92,7 @@ body {
 }
 
 .btn:hover {
-    background-color: #F1AF09;
+    background-color: #0127ff;
     transform: scale(1.05);
 }
 
@@ -102,14 +102,14 @@ body {
 
 .icons i {
     font-size: 1.5rem;
-    color: #1D6DCD;
+    color: #0104a7;
     margin: 0 10px;
     cursor: pointer;
     transition: color 0.3s;
 }
 
 .icons i:hover {
-    color: #F1AF09;
+    color: #0127ff;
 }
 
 .links {
@@ -118,7 +118,7 @@ body {
 
 .links p {
     margin-bottom: 10px;
-    color: #555;
+    color: #250404;
 }
 
 .links button {
@@ -131,7 +131,7 @@ body {
 }
 
 .links button:hover {
-    color: #F1AF09;
+    color: #0127ff;
 }
 
 .recover a {

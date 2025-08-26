@@ -1,10 +1,18 @@
 //Importa as funções necessárias do firebase
-import { initializeApp } from "";
-import { getAuth, GoogleProvide, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "";
-import { getFirestore, setDoc, doc } from "";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
+import { getAuth, GoogleProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 //Configuração do Firebase
-
+  // Your web app's Firebase configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCOlMX4IIGhOcJCoz65AbDrMZFh01NlRyg",
+    authDomain: "openidconnect-73caa.firebaseapp.com",
+    projectId: "openidconnect-73caa",
+    storageBucket: "openidconnect-73caa.firebasestorage.app",
+    messagingSenderId: "769869525202",
+    appId: "1:769869525202:web:c71667568fe792af8afd0b"
+  };
 
 //Inicializa o firebase
 const app = initializeApp(firebaseConfig);
@@ -66,4 +74,22 @@ signIn.addEventListener('click', (event) => {
     const auth = getAuth(); //Configura o serviço de autenticação
 
     //Realiza o login com e-mail e senha
-})
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+        showMessage('usuário logado com sucesso', signInMessage); //Exibe mensagem de sucesso
+        const user = userCredential.user;
+
+        //Salva o ID do usuário no lcalStorage
+        localStorage.setItem('loggedInUserId', user.uid);
+
+        window.location.href = 'homepage.html'; //Redireciona para a página inicial
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        if (errorCode == 'auth/invalid-credential') {
+            showMessage('Email ou Senha incorreta', 'signInMessage');
+        }else{
+            showMessage('Essa conta não existe', 'signMessage');
+        }
+    });
+});
