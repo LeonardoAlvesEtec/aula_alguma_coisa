@@ -1,7 +1,7 @@
 // Importa as funções necessárias do Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged, createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
+    signInWithEmailAndPassword, signInWithRedirect } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-auth.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/12.1.0/firebase-firestore.js";
 
 //Configuração do Firebase
@@ -21,20 +21,32 @@ const app = initializeApp(firebaseConfig);
 const provider = new GoogleAuthProvider();
 
 const auth = getAuth(); // Configura o serviço de autenticação
-signInWithRedirect(auth, provider);
 
 //Sign In com o Google :)
+
+var goog = document.getElementById('signInGoogle')
+
+goog.addEventListener('click', function() {
 signInWithPopup(auth, provider)
   .then((result) => {
     const credential = GoogleAuthProvider.credentialFromResult(result);
     const token = credential.accessToken;
     const user = result.user;
+
+    console.log(user)
+    console.log("BANANBNANANANA: " + user.uid)
+    // Salva o ID do usuário no localStorage
+    localStorage.setItem('loggedInUserId', user.uid);
+    window.location.href = 'homepage.html';
+
   }).catch((error) => {
     const errorCode = error.code;
     const errorMessage = error.message;
     const email = error.customData.email;
     const credential = GoogleAuthProvider.credentialFromError(error);
   });
+
+})
 
 
 
